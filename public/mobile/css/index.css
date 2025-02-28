@@ -2,6 +2,7 @@
 
 body {
     background-color: var(--bg);
+    overflow-y: hidden;
 }
 
 .title p {
@@ -34,13 +35,37 @@ body {
     justify-content: center;
     background-image: var(--linear-bg);
     border-top-left-radius: 17vw; border-top-right-radius: 17vw;
+    transition: 0.3s ease-in-out transform;
+}
+
+.main#closed {
+    transform: translateY(100%);
+}
+
+@keyframes borderClose {
+    0% {
+    }
+
+    10% {
+        border-top-left-radius: 17vw; border-top-right-radius: 17vw;
+    }
+
+    100% {
+        border-top-left-radius: 0px; border-top-right-radius: 0px;
+    }
+}
+
+.main#fullscreen {
+    height: 100%;
+    transform: translateY(-15%);
+    animation: borderClose .7s forwards;
 }
 
 .main .title {
     display: flex;
     position: absolute;
     top: 0px; left: 0px;
-    width: 100%; height: 20%;
+    width: 100%; height: 15%;
     justify-content: center; align-items: center;
 }
 
@@ -58,125 +83,12 @@ body {
     border-radius: 20px;
 }
 
-.main .games {
-    display: flex;
-    justify-content: center;
-    /* flex-wrap: wrap; */
-    flex-flow: row wrap;
-    
+.main #frame {
     position: absolute;
-    top: 20%; left: 0px;
-    width: 100%; height: calc(100% - 20%);
-    box-sizing: border-box;
-}
-
-.main .games .gamecard {
-    position: relative;
-    box-sizing: border-box;
-    width: 70%; height: 22vw;
-    background-color: var(--bg);
-    border-radius: 6vw;
-    border: 1vw solid var(--compliment-color);
-
-    transition: 0.09s ease-in transform, 0.09s ease-in-out filter;
-}
-
-.main .games .gamecard:first-child {
-    margin-top: 10%;
-}
-
-.main .games .gamecard:hover {
-    transform: scale(1.02);
-    /* filter: drop-shadow(0 0 0.75rem rgba(28, 28, 28, 0.9)); */
-    cursor: pointer;
-}
-
-.main .games .gamecard .teams {
-    display: flex;
-    position: absolute;
-    top: 0px; left: 10%;
-    width: calc(66% - 10%); height: 100%;
-    align-items: center;
-}
-
-.main .games .gamecard .teams a {
-    user-select: none;
-    color: white;
-    font-family: var(--font);
-    font-weight: 900; font-size: 3.5vw;
-    margin-left: 4vw; margin-right: 4vw;
-}
-
-.main .games .gamecard .teams .team {
-    position: relative;
-    width: 12vw; height: 100%;
-    display: flex;
-    justify-content: space-between; align-items: center;
-}
-
-.main .games .gamecard .teams .team img {
-    display: block;
-    max-width: 12vw;
-    max-height: 12vw;
-    width: auto;
-    height: auto;
-}
-  
-.main .games .gamecard .teams .team figure {
-    user-select: none;
-    color: white;
-    font-family: var(--font);
-    font-weight: 900; font-size: 4vw;
-    display: inline-flex;
-    flex-direction: column;
-    text-align: center;
-    width: 30vw;
-    margin: 0;
-}
-  
-.main .games .gamecard .teams .team figure * {
-    width: 100%;
-}
-
-.main .games .gamecard .teams::after {
-    content: "";
-    position: relative;
-    top: 0px; right: -15%;
-    width: .2vw; height: 50%;
-    border-radius: 20px;
-    background-color: white;
-}
-
-.main .games .gamecard .time {
-    position: absolute;
-    top: calc((100% - 60%) / 2); right: 0px;
-    width: 33%; height: 60%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    text-align: center;
-}
-
-.main .games .gamecard .time .clock, .main .games .gamecard .time .timezone {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-family: var(--font);
-    color: white;
-}
-
-.main .games .gamecard .time .clock {
-    position: absolute;
-    font-size: 4vw;
-    font-weight: 600;
-    align-items: end;
-}
-
-.main .games .gamecard .time .timezone {
-    position: absolute;
-    margin-top: 2%;
-    font-size: 2vw;
+    top: 0px; left: 0px;
+    width: 100%; height: 100%;
+    border: 0px none;
+    outline: none;
 }
 
 .footer {
@@ -189,30 +101,63 @@ body {
     border-top-left-radius: 7vw; border-top-right-radius: 7vw;
 }
 
-.footer .menu {
+/* .footer .menu {
     display: flex;
     justify-content: center; align-items: center;
     width: 70%; height: 50%;
     background-color: var(--bg);
     border: 1vw solid var(--compliment-color); border-radius: 3vw;
-}
+} */
 
-.footer .menu .item {
+.footer .item {
     display: flex;
     justify-content: center; align-items: center;
-    width: 7vw; height: 75%;
+    width: 15vw; height: 100%;
     margin-left: 3.5vw; margin-right: 3.5vw;
 }
 
-.footer .menu .item img {
+.footer .item img {
+    transition: 0.1s ease-in-out transform;
     display: block;
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
+    /* max-width: 20vw; */
+    /* max-height: 25vw; */
+    width: 10vw;
+    height: 10vw;
     -webkit-user-drag: none;
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
     user-drag: none;
 }
+
+.footer .item img {
+    cursor: pointer;
+    transform: scale(0.8);
+}
+
+.footer .item#active img {
+    transform: scale(1.1);
+}
+
+.footer .item:not(.footer .item#active):hover img {
+    transform: scale(0.9);
+}
+
+.footer .item:nth-child(2):after {
+    content: "";
+    position: relative;
+    top: 0px; right: calc(-50% + (.4vw * 3.5));
+    width: .4vw; height: 30%;
+    background-color: white;
+    border-radius: 20%;
+}
+
+.footer .item:nth-child(1):after {
+    content: "";
+    position: relative;
+    top: 0px; right: calc(-50% + (.4vw * 3.5));
+    width: .4vw; height: 30%;
+    background-color: white;
+    border-radius: 20%;
+}
+

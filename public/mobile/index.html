@@ -8,6 +8,9 @@
 
         <link rel="shortcut icon" href="./img/icon.png">
         <link rel="stylesheet" href="./css/index.css">
+
+        <script src="./js/main.js"></script>
+        <script src="./js/nav.js"></script>
     </head>
     <body>
         <div class="header">
@@ -16,143 +19,23 @@
             </div>
         </div>
 
-        <div class="main">
-            <div class="title">
-                <p>Games</p>
-            </div>
+        <div class="main" id="">
+            <iframe id="frame" src="./games.html">
 
-            <div class="games">
-                <div class="gamecard">
-                    <div class="teams">
-                        <div class="team">
-                            <figure class="aboutimage">
-                                <figcaption>LAL</figcaption>
-                                <img src="./img/teams/lakers.png">
-                            </figure>
-                        </div>
-                        
-                        <a>@</a>
-
-                        <div class="team">
-                            <figure class="aboutimage">
-                                <figcaption>BOS</figcaption>
-                                <img src="./img/teams/celtics.png">
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="time">
-                        <div class="clock">
-                            <p>8:30</p>
-                        </div>
-                        <div class="timezone">
-                            <p>EST</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gamecard">
-                    <div class="teams">
-                        <div class="team">
-                            <figure class="aboutimage">
-                                <figcaption>LAL</figcaption>
-                                <img src="./img/teams/lakers.png">
-                            </figure>
-                        </div>
-                        
-                        <a>@</a>
-
-                        <div class="team">
-                            <figure class="aboutimage">
-                                <figcaption>BOS</figcaption>
-                                <img src="./img/teams/celtics.png">
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="time">
-                        <div class="clock">
-                            <p>8:30</p>
-                        </div>
-                        <div class="timezone">
-                            <p>EST</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gamecard">
-                    <div class="teams">
-                        <div class="team">
-                            <figure class="aboutimage">
-                                <figcaption>LAL</figcaption>
-                                <img src="./img/teams/lakers.png">
-                            </figure>
-                        </div>
-                        
-                        <a>@</a>
-
-                        <div class="team">
-                            <figure class="aboutimage">
-                                <figcaption>BOS</figcaption>
-                                <img src="./img/teams/celtics.png">
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="time">
-                        <div class="clock">
-                            <p>8:30</p>
-                        </div>
-                        <div class="timezone">
-                            <p>EST</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gamecard">
-                    <div class="teams">
-                        <div class="team">
-                            <figure class="aboutimage">
-                                <figcaption>LAL</figcaption>
-                                <img src="./img/teams/lakers.png">
-                            </figure>
-                        </div>
-                        
-                        <a>@</a>
-
-                        <div class="team">
-                            <figure class="aboutimage">
-                                <figcaption>BOS</figcaption>
-                                <img src="./img/teams/celtics.png">
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="time">
-                        <div class="clock">
-                            <p>8:30</p>
-                        </div>
-                        <div class="timezone">
-                            <p>EST</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </iframe>
         </div>
 
         <div class="footer">
-            <div class="menu">
-                <div class="item">
-                    <img src="./img/info.svg">
-                </div>
+            <div class="item" data-redirect="info">
+                <img src="./img/info.svg">
+            </div>
 
-                <div class="item">
-                    <img src="./img/home.svg">
-                </div>
+            <div class="item" id="active" data-redirect="home">
+                <img src="./img/home.svg">
+            </div>
 
-                <div class="item">
-                    <img src="./img/settings.svg">
-                </div>
+            <div class="item" data-redirect="settings">
+                <img src="./img/settings.svg">
             </div>
         </div>
     </body>
